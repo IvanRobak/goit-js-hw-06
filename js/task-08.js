@@ -3,11 +3,11 @@ const form = document.querySelector('.login-form');
 form.addEventListener('submit', event => {
   event.preventDefault();
 
-  const email = form.elements.email.value;
-  const password = form.elements.password.value;
+  const email = event.target.email.value.trim();
+  const password = event.target.password.value.trim();
 
   if (!email || !password) {
-    alert('Please, fill in all fields');
+    return alert('Please, fill in all fields');
   }
 
   const data = {
@@ -16,5 +16,5 @@ form.addEventListener('submit', event => {
   };
 
   console.log(data);
-  form.reset();
+  event.target.reset();
 });
